@@ -1,0 +1,182 @@
+@import 'tri';
+@import 'pent';
+
+div.shape{
+  & > div{
+    position: absolute;
+  }
+}
+
+.shape{
+	margin: 0 auto;
+	& > div{
+		&.hide{ background-color: transparent !important; }
+		&.circle.r-2{ border-radius: 2px; }
+		&.circle.r-4{ border-radius: 4px; }
+		&.circle.r-6{ border-radius: 6px; }
+		&.circle.r-8{ border-radius: 8px; }
+		&.circle.r-10{ border-radius: 10px; }
+		&.circle.r-20{ border-radius: 20px; }
+		&.circle.r-30{ border-radius: 30px; }
+		&.circle.r-40{ border-radius: 40px; }
+		&.circle.r-50{ border-radius: 50px; }
+		&.circle.r-60{ border-radius: 60px; }
+		&.circle.r-70{ border-radius: 70px; }
+		&.circle.r-80{ border-radius: 80px; }
+		&.circle.r-90{ border-radius: 90px; }
+	}
+}
+
+@mixin centerTri($a, $r){
+  margin-top: ($r - (2 * $a)) / 2 + px;
+  margin-left: ($r - (2 * $a)) / 2 + px;
+}
+
+@mixin centerPentMargin($a, $r){
+  margin-top: ($r - (2 * $a)) / 2 + px;
+  margin-left: ($r - (2 * $a)) / 2 + px;
+}
+
+.r-2{ $r: 2;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-4{ $r: 4;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-6{ $r: 6;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-8{ $r: 8;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-10{ $r: 10;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-20{ $r: 20;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-30{ $r: 30;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-40{ $r: 40;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-50{ $r: 50;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-60{ $r: 60;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-70{ $r: 70;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-80{ $r: 80;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}
+.r-90{ $r: 90;
+  & > .a-10 { $a: 10; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-20 { $a: 20; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-30 { $a: 30; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-40 { $a: 40; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-50 { $a: 50; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-60 { $a: 60; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-70 { $a: 70; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-80 { $a: 80; &.tri, &.pent{ @include centerTri($a, $r); }}
+  & > .a-90 { $a: 90; &.tri, &.pent{ @include centerTri($a, $r); }}
+}

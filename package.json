@@ -1,0 +1,29 @@
+{
+  "name": "pythagoras",
+  "version": "1.0.0",
+  "description": "Create complex geometric animations in pure CSS with a few lines of JSON",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "start": "concurrent \"npm run lite\" \"gulp sass:w\""
+  },
+  "keywords": [
+    "geometry",
+    "css",
+    "animation",
+    "pythagoras"
+  ],
+  "author": "Austin Martin",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-sass": "^2.3.2",
+    "gulp-watch": "^4.3.9",
+    "lite-server": "^2.2.2",
+    "vue": "^1.0.26"
+  }
+}

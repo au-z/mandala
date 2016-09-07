@@ -1,0 +1,14 @@
+{
+  "name": "One",
+  "shapes": {
+    "tri-20": { "attrs": ["tri", "a-20"], "particleCount": 3 }
+  },
+  "particleIterators": ["A", "B", "C"],
+  "particles": {
+    "circle-10": { "attrs": ["circle", "r-10"] }
+  },
+  "design": {
+    "L0": { "shape": "tri-20", "particles": "circle-10", "link": "L1"},
+    "L1": { "shape": "tri-20", "particles": "circle-10"}
+  }
+}

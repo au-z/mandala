@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pythagoras - Samples</title>
+	<link rel="stylesheet" href="dist/pythagoras.min.css">
+	<link rel="stylesheet" href="examples/style.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body id="pythagoras">
+<div id="wrap">
+	<div class="effect" v-if="effects[currentEffect].html !== '{0}' && effects[currentEffect].css" v-cloak>
+		{{{effects[currentEffect].html}}}
+	</div>
+	<style>
+		{{{effects[currentEffect].css}}}
+	</style>
+</div>
+<script src="js/pythagoras.js"></script>
+<script src="examples/pythagoras.vue.js"></script>
+</body>
+</html>

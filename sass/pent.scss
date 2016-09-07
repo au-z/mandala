@@ -1,0 +1,188 @@
+@import 'math';
+
+@function adjust($a){
+  @return (2 * $a * 1.539)/2 - $a; 
+}
+
+@mixin shape($a){
+  position: relative;
+  width: 2 * $a + px;
+  height: 2 * $a + px;
+}
+
+@mixin vert($r){
+  width: $r + px;
+  height: $r + px;
+}
+
+@mixin pentA($a, $r){
+  @include vert($r);
+  bottom: ((2 * $a) * ((1 + sqrt(5)) / 4)) * 2 - adjust($a) - $r/2 + px;
+  left: $a - $r/2 + px;
+}
+
+@mixin pentB($a, $r){
+  @include vert($r);
+  bottom: (2 * $a) * cos(18) - adjust($a) - $r/2 + px; 
+  left: - (2 * $a) * sin(18) - $r/2 + px;
+}
+
+@mixin pentC($a, $r){
+  @include vert($r);
+  bottom: (2 * $a) * cos(18) - adjust($a) - $r/2 + px; 
+  right: - (2 * $a) * sin(18) - $r/2 + px;
+}
+
+@mixin pentD($a, $r){
+  @include vert($r);
+  bottom: - adjust($a) - $r/2 + px;
+  left: - $r/2 + px;
+}
+
+@mixin pentE($a, $r){
+  @include vert($r);
+  bottom: - adjust($a) - $r/2 + px;
+  right: - $r/2 + px;
+}
+
+div.shape.pent.a-10{ $a: 10; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-20{ $a: 20; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-30{ $a: 30; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-40{ $a: 40; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-50{ $a: 50; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-60{ $a: 60; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-70{ $a: 70; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-80{ $a: 80; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+div.shape.pent.a-90{ $a: 90; @include shape($a);
+  & > .r-2 { $r: 2; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }} 
+  & > .r-4 { $r: 4; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-6 { $r: 6; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-8 { $r: 8; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-10 { $r: 10; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-20 { $r: 20; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-30 { $r: 30; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-40 { $r: 40; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-50 { $r: 50; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-60 { $r: 60; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-70 { $r: 70; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-80 { $r: 80; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}
+  & > .r-90 { $r: 90; &.A { @include pentA($a, $r); } &.B { @include pentB($a, $r); } &.C { @include pentC($a, $r); } &.D { @include pentD($a, $r); } &.E { @include pentE($a, $r); }}  
+}
+
+
+
+
+
+
