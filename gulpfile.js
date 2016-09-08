@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	cssmin = require('gulp-cssmin'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
-	babel = require('gulp-babel');
+	pump = require('pump');
 
 gulp.task('sass', function(){
 	return gulp.src('./sass/**/*.scss')
@@ -20,14 +20,15 @@ gulp.task('sass:w', function(){
 	gulp.watch('./sass/**/*.scss', ['sass'])
 });
 
-gulp.task('js', function(){
-  return gulp.src('./js/**/*.js')
-		.pipe(babel({presets: ['es2015']}))
-		.pipe(concat('./dist/pythagoras.js'))
-		.pipe(gulp.dest('.'))
-		.pipe(rename({ extname: '.min.js' }))
-		.pipe(uglify())
-		.pipe(gulp.dest('.'));
+gulp.task('js', function(cb){
+	pump([
+		gulp.src('./js/**/*.js'),
+			concat('./dist/pythagoras.js'),
+			gulp.dest('.'),
+			rename({ extname: '.min.js' }),
+			uglify(),
+			gulp.dest('.'),
+	], cb);
 });
 
 gulp.task('js:w', function(){

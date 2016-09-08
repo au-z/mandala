@@ -9,16 +9,16 @@ var Pythagoras = (function(){
   if (!String.prototype.format) {
     String.prototype.format = function() {
       var args = arguments;
-      return this.replace(/{(\d+)}/g, function(match, number) { 
+      return this.replace(/{(\d+)}/g, function(match, number) {
         return typeof args[number] != 'undefined' ? args[number] : match;
       });
     };
   }
 
   function load(effects){
-    effects.map(e => {
+    effects.map(function(e){
       e.css = null;
-      e.plan = null; 
+      e.plan = null;
       e.tree = {};
       e.html= '{0}';
       e.uri && get(e.uri, 'json')
@@ -36,7 +36,7 @@ var Pythagoras = (function(){
       http.responseType = responseType;
       http.open('GET', url);
       http.onload = function(){
-        (http.status === 200 && http.response !== null) ? 
+        (http.status === 200 && http.response !== null) ?
           resolve(http.response) : reject(Error(http.statusText));
       };
       http.onerror = function(){ reject(Error('Network error.')); };
@@ -54,7 +54,8 @@ var Pythagoras = (function(){
     e.html = e.html.replace('{0}', '');
   }
 
-  function recurseDesign(e, treeNode, designNode, link, isRoot = false){
+  function recurseDesign(e, treeNode, designNode, link, isRoot){
+    isRoot = isRoot || false;
     var shapeKey = designNode.shape;
     var shapeValue = e.plan.shapes[shapeKey];
     var particleKey = designNode.particles;

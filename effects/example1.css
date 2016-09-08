@@ -3,7 +3,7 @@
 }
 
 .L1.tri {
-  animation: bounce 2s infinite ease;
+  animation: bounce 2s infinite ease-in-out;
 }
 
 .L0.tri {
