@@ -1,3 +1,23 @@
 .circle{
-  background-color: red;
+  background-color: deeppink;
+}
+
+.L1.tri {
+  animation: bounce 2s infinite ease;
+}
+
+.L0.tri {
+  animation: spin 5s infinite linear;
+}
+
+@keyframes spin{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce{
+  50%{
+    margin-top: 40px;
+  }
 }

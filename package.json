@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "start": "concurrent \"npm run lite\" \"gulp sass:w\""
+    "start": "concurrent \"npm run lite\" \"gulp sass:w\" \"gulp js:w\""
   },
   "keywords": [
     "geometry",
@@ -15,13 +15,17 @@
     "pythagoras"
   ],
   "author": "Austin Martin",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
     "concurrently": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.9",
     "lite-server": "^2.2.2",
     "vue": "^1.0.26"

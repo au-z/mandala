@@ -10,5 +10,6 @@ var vm = new Vue({
   created: function(){
     this.module = new Pythagoras();
     this.effects = this.module.load(this.effects);
+    console.log(this.effects);
   }
 })

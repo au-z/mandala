@@ -27,6 +27,7 @@ var Pythagoras = (function(){
       e.styleUri && get(e.styleUri, 'text')
         .then(function(css){ e.css = css; });
     });
+    return effects;
   }
 
   function get(url, responseType){
@@ -87,8 +88,7 @@ var Pythagoras = (function(){
           tree.id = recurseTree(e, { node: tree.node.particles[i].child, id: tree.id });
         }
       }
-      e.html = e.html.replace('{0}</div>', '</div>{0}'); //escape to child shape div
-      e.html = e.html.replace('{0}</div>', '</div>{0}'); //escape to parent particle div
+      e.html = e.html.replace('{0}</div>', '</div></div>{0}');
     }
     return tree.id;
   }
