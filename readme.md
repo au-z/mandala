@@ -17,9 +17,9 @@ For those looking to play:
 
 Once starting lite-server with `npm start`, browse to localhost:3000 to begin.
 
-*Pythagoras uses Vue.JS for data binding for ease of use and includes a Jquery CDN link for easy DOM querying but the dist directory is dependency-less!*
+*Disclaimer: Pythagoras is more art project than code-base. It's designed for the enlightened, modern browser. Vendor prefixed CSS and polyfills are not planned. If you're looking the next best framework to do some crazy IE8 native CSS animations, look no further.*
 
-*Pythagoras is more art project than code-base. It's designed for the enlightened, modern browser. Vendor prefixed CSS and polyfills are not planned. If you're looking the next best framework to do some crazy IE8 native CSS animations, look no further.*
+*Note: Pythagoras uses Vue.JS for data binding for ease of use and includes a Jquery CDN link for easy DOM querying but the dist directory is dependency-less!*
 
 Pythagoras design files are located in the effects folder. Each effect is described by a .json file. Matching .css files provide extra effect-specific styles.
 The examples there should get you off the ground but here's a primer on a basic Pythagoras design file.
