@@ -1,4 +1,4 @@
-# ${1:Pythagoras}
+# Pythagoras
 
 Create complex geometric animations in pure CSS with a few lines of JSON. 
 Pythagoras does away with laborious recursive markup and standardizes a flexible syntax oriented towards building nested geometric pattens in the browser. 
@@ -18,6 +18,7 @@ For those looking to play:
 Once starting lite-server with `npm start`, browse to localhost:3000 to begin.
 
 *Pythagoras uses Vue.JS for data binding for ease of use and includes a Jquery CDN link for easy DOM querying but the dist directory is dependency-less!*
+
 *Pythagoras is more art project than code-base. It's designed for the enlightened, modern browser. Vendor prefixed CSS and polyfills are not planned. If you're looking the next best framework to do some crazy IE8 native CSS animations, look no further.*
 
 Pythagoras design files are located in the effects folder. Each effect is described by a .json file. Matching .css files provide extra effect-specific styles.
