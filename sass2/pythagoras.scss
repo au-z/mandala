@@ -1,0 +1,11 @@
+.shape{
+  position: relative;
+  &.debug{
+    border: 1px solid gray;
+    outline: 1px solid gray;
+  }
+  
+  .vert{
+    position: absolute;
+  }
+}

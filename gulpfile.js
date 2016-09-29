@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	pump = require('pump');
 
 gulp.task('sass', function(){
-	return gulp.src('./sass/**/*.scss')
+	return gulp.src('./sass2/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(concat('./dist/pythagoras.css'))
 		.pipe(gulp.dest('.'))
@@ -17,7 +17,7 @@ gulp.task('sass', function(){
 });
 
 gulp.task('sass:w', function(){
-	gulp.watch('./sass/**/*.scss', ['sass'])
+	gulp.watch('./sass2/**/*.scss', ['sass'])
 });
 
 gulp.task('js', function(cb){

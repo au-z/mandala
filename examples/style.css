@@ -24,12 +24,37 @@ body{
 }
 
 .effect{
-  position: relative;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
+}
+
+.arrow{
+  position: absolute;
+  top: 50%;
+  width: 0px;
+  height: 0px;
+  margin: 16px;
+  border-bottom: 16px solid transparent !important;
+  border-top: 16px solid transparent !important;
+}
+
+.arrow:hover{
+  cursor: pointer;
+}
+
+.arrow.left{
+  left: 0;  
+  transform: translate(0px, -50%);  
+  border-right: 16px solid rgba(200,200,200,0.6);
+}
+
+.arrow.right{
+  right: 0;  
+  transform: translate(0px, -50%);  
+  border-left: 16px solid rgba(200,200,200,0.6);
+
 }
 
 

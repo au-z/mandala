@@ -9,6 +9,8 @@
 </head>
 <body id="pythagoras">
 <div id="wrap">
+	<div class="arrow left" v-on:click="decrement"></div>
+	<div class="arrow right" v-on:click="increment"></div>
 	<div class="effect" v-if="effects[currentEffect].html !== '{0}' && effects[currentEffect].css" v-cloak>
 		{{{effects[currentEffect].html}}}
 	</div>

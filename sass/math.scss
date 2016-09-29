@@ -9,6 +9,18 @@
   height: $r + px;
 }
 
+@mixin shapeAsCircle($s, $n){
+  $d: 2 * circumradius($s, $n);
+  content: "";
+  position: absolute;
+  top: ($s - $d)/2 + px;
+  left: ($s - $d)/2  + px;
+  width: $d + px;
+  height: $d + px;
+  border-radius: $d + px;
+  border: 1px solid gray;
+}
+
 @function pi() {
   @return 3.14159265359;
 }
@@ -75,6 +87,10 @@
 
 @function tan($angle) {
   @return sin($angle) / cos($angle);
+}
+
+@function circumradius($s, $n){
+  @return $s / (2 * sin(180/$n));
 }
 
 // 30-60-90 triangle functions
