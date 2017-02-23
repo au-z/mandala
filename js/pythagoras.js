@@ -1,4 +1,4 @@
-var Pythagoras = (function(){
+var Pythagoras = (function() {
   var SHAPE_TAG = '<div id="el-{0}" class="{1}" style="{2}">{3}';
   var SHAPE_CSS = 'width: {0}px; height: {1}px; border-radius: {2}px; margin-left: {3}px; margin-top: {4}px';
   var VERT_TAG = '<div id="el-{0}" class="{1}" style="{2}">{3}';
@@ -17,14 +17,14 @@ var Pythagoras = (function(){
     };
   }
 
-  function load(effects){
-    effects.map(function(e){
+  function load(effects) {
+    effects.map(function(e) {
       e.css = null;
       e.plan = null;
       e.tree = {};
       e.html= '{0}';
       e.uri && get(e.uri, 'json')
-        .then(function(json){ toTree(e, json)})
+        .then(function(json){ toTree(e, json) })
         .then(function(plan){ toHtml(e) });
       e.styleUri && get(e.styleUri, 'text')
         .then(function(css){ e.css = css; });

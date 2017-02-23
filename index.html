@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pythagoras - Samples</title>
-	<link rel="stylesheet" href="dist/pythagoras.min.css">
-	<link rel="stylesheet" href="examples/style.css">
-	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-	<script src="node_modules/vue/dist/vue.js"></script>
-</head>
-<body id="pythagoras">
-<div id="wrap">
-	<div class="arrow left" v-on:click="decrement"></div>
-	<div class="arrow right" v-on:click="increment"></div>
-	<div class="effect" v-if="effects[currentEffect].html !== '{0}' && effects[currentEffect].css" v-cloak>
-		{{{effects[currentEffect].html}}}
-	</div>
+	<title>Mandala - Samples</title>
 	<style>
-		{{{effects[currentEffect].css}}}
+		.gon{
+			position: relative;
+		}
+		.vert{
+			position: absolute;
+		}
+		.debug{
+			border: 1px solid white;
+			outline: 1px solid white;
+		}
 	</style>
+	<link rel="stylesheet" href="examples/style.css">
+</head>
+<body>
+<div id="wrap">
+	<!--<div class="arrow left" v-on:click="decrement"></div>-->
+	<!--<div class="arrow right" v-on:click="increment"></div>-->
+	<div id="mandala">
+	</div>
 </div>
-<script src="dist/pythagoras.min.js"></script>
-<script src="examples/pythagoras.vue.js"></script>
+<!--<script src="dist/pythagoras.min.js"></script>-->
+<!--<script src="examples/pythagoras.vue.js"></script>-->
+<script>
+	var _mandalaEffects = [
+		{uri: 'effects/e1'},
+	];
+</script>
+<script src="js/mandala.js"></script>
 </body>
 </html>

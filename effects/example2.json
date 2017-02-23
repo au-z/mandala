@@ -3,17 +3,16 @@
   "shapes": {
     "root": { "particleCount": 4, "args": { "radius" : 50 } },
     "level_1": { "particleCount": 50, "args": { "radius" : 100 } },
-    "level_2": { "particleCount": 15, "args": { "radius" : 200 } }
+    "level_2": { "particleCount": 15, "args": { "radius" : 80 } }
   },
   "particles": {
-    "10": { "args": { "radius" : 10 } },
+    "10": { "args": { "radius" : 5 } },
     "3": { "args": { "radius" : 3 } },
     "1": { "args": { "radius" : 1 } }
   },
   "design": {
     "L0": { "shape": "root", "particles": "10", "link": "L1"},
     "L1": { "shape": "level_1", "particles": "3", "link": "L2"},
-    "L2": { "shape": "level_2", "particles": "1", "link": "L3"},
-    "L3": { "shape": "root", "particles": "10"}
+    "L2": { "shape": "level_2", "particles": "1"}
   }
 }
