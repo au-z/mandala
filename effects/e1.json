@@ -14,6 +14,6 @@
   "nodes": [
     { "gon": "root", "vert": "p2", "link": 1},
     { "gon": "level_1", "vert": "p1", "link": 2},
-    { "gon": "level_2", "vert": "p0"}
+    { "gon": "level_2", "vert": "p1"}
   ]
 }

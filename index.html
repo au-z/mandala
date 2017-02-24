@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mandala - Samples</title>
+	<title>Mandala</title>
 	<style>
-		.gon{
-			position: relative;
-		}
-		.vert{
-			position: absolute;
-		}
-		.debug{
-			border: 1px solid white;
-			outline: 1px solid white;
-		}
+		*, *::before, *::after{box-sizing: border-box;}
+		html, body{margin: 0;padding: 0;}
+		#wrap{position: absolute;  background-color: #272724; width: 100%;height: 100%;}
+		#mandala{position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+		.gon{ position: relative; } 
+		.vert{ position: absolute; }
 	</style>
-	<link rel="stylesheet" href="examples/style.css">
+	<!--<link rel="stylesheet" href="examples/style.css">-->
 </head>
-<body>
-<div id="wrap">
-	<!--<div class="arrow left" v-on:click="decrement"></div>-->
-	<!--<div class="arrow right" v-on:click="increment"></div>-->
-	<div id="mandala">
-	</div>
-</div>
-<!--<script src="dist/pythagoras.min.js"></script>-->
-<!--<script src="examples/pythagoras.vue.js"></script>-->
-<script>
-	var _mandalaEffects = [
-		{uri: 'effects/e1'},
-	];
-</script>
-<script src="js/mandala.js"></script>
+<body id="wrap">
+	<div id="mandala"></div>
+	<script>
+		var _mandalaEffects = [
+			{uri: 'effects/e1'},
+		];
+	</script>
+	<script src="js/mandala.js"></script>
 </body>
 </html>

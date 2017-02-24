@@ -96,6 +96,11 @@ var Pythagoras = (function() {
     return tree.id;
   }
 
+  // var SHAPE_TAG = '<div id="el-{0}" class="{1}" style="{2}">{3}';
+  // var SHAPE_CSS = 'width: {0}px; height: {1}px; border-radius: {2}px; margin-left: {3}px; margin-top: {4}px';
+  // var VERT_TAG = '<div id="el-{0}" class="{1}" style="{2}">{3}';
+  // var VERT_CSS = 'left: {0}px; bottom: {1}px; width: {2}px; height: {3}px; border-radius: {4}px;';
+
   function styleShape(shape, parentRadius){
     var sr = shape.args.radius;
     var sd = 2 * sr;

@@ -49,7 +49,7 @@
      */
     let VertElement = function(gon, vert, n, N) {
       let vertEl = document.createElement('div');
-      vertEl.setAttribute('class', 
+      vertEl.setAttribute('class',
         'vert depth_' + gon.depth + ((_m.debug) ? ' debug' : ''));
       let gonR = gon.gon.radius;
       let vertR = vert.radius;
@@ -125,15 +125,17 @@
         }\n`.format(diameter, margin));
       _m.styleDict[gonSelector] = true;
 
-      let vertD = 2 * gon.vert[0].radius;
-      let vertSelector = '.vert.depth_' + gon.depth;
-      injectCss(vertSelector + `
-        {
-          width: {0}px;
-          height: {0}px;
-          border-radius: {0}px;
-        }\n`.format(vertD));
-      _m.styleDict[vertSelector] = true;
+      if(gon.gon.vertCount > 0 && gon.vert[0]) {
+        let vertD = 2 * gon.vert[0].radius;
+        let vertSelector = '.vert.depth_' + gon.depth;
+        injectCss(vertSelector + `
+          {
+            width: {0}px;
+            height: {0}px;
+            border-radius: {0}px;
+          }\n`.format(vertD));
+        _m.styleDict[vertSelector] = true;
+      }
     }
 
     /**

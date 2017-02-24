@@ -1,7 +1,0 @@
-.shape {
-  position: relative; }
-  .shape.debug {
-    border: 1px solid gray;
-    outline: 1px solid gray; }
-  .shape .vert {
-    position: absolute; }
