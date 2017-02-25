@@ -1,40 +1,23 @@
-.debug{
-  border: 1px solid rgba(255,255,255,0.5);
-  outline: 1px solid rgba(255,255,255,0.5);
+.E1.vert{
+  background-color: #FF3939;
 }
 
-.vert{
-  background-color: tan;
+.E1.gon.depth_0{
+  animation: spinC 5s infinite linear;
 }
 
-.gon.depth_0{
-  animation: spinR 10s infinite linear;
+.E1.gon.depth_1{
+  animation: spinCC 15s infinite linear;
 }
 
-.gon.depth_2{
-  animation: spinL 30s infinite linear;
-}
-
-.vert.depth_0,
-.vert.depth_1{
-  background-color: transparent;
-}
-
-@keyframes spinR{
+@keyframes spinC{
   100%{
     transform: rotate(360deg);
   }
 }
 
-@keyframes spinL{
+@keyframes spinCC{
   100%{
     transform: rotate(-360deg);
-  }
-}
-
-
-@keyframes bounce{
-  50%{
-    padding-top: 10px;
   }
 }

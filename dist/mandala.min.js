@@ -1,3 +1,7 @@
+(function() {
+  console.log('hello');
+})();
+
 const Mandalas = (function(obj, styleTitle) {
   const OBJ = _mandalaEffects;
   const STYLE_TITLE = 'mandala-css';

@@ -10,7 +10,7 @@ gulp.task('js', function(cb) {
 			concat('./dist/mandala.js'),
 			gulp.dest('.'),
 			rename({extname: '.min.js'}),
-			uglify(),
+			// uglify(),
 			gulp.dest('.'),
 	], cb);
 });

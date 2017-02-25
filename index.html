@@ -5,10 +5,12 @@
 	<style>
 		*, *::before, *::after{box-sizing: border-box;}
 		html, body{margin: 0;padding: 0;}
-		#wrap{position: absolute;  background-color: #272724; width: 100%;height: 100%;}
-		#mandala{position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
-		.gon{ position: relative; } 
-		.vert{ position: absolute; }
+		#wrap{position: absolute; background-color: #272724; overflow: hidden; width: 100%;height: 100%;}
+		#mandala{position: absolute; left: 50%;top: 50%;transform: translate(-50%, -50%);}
+		.mandala-container{ position: absolute; }
+		.debug{border: 1px solid rgba(120,120,120,0.5); outline: 1px solid rgba(120,120,120,0.5);}
+		.gon{ position: relative; }
+		.vert{ position: absolute; background-color: gray; }
 	</style>
 	<!--<link rel="stylesheet" href="examples/style.css">-->
 </head>
@@ -17,8 +19,11 @@
 	<script>
 		var _mandalaEffects = [
 			{uri: 'effects/e1'},
+			{uri: 'effects/e2'},
+			{uri: 'effects/e3'},
 		];
 	</script>
 	<script src="js/mandala.js"></script>
+	<script src="js/mandala-ui.js"></script>
 </body>
 </html>
