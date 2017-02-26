@@ -1,7 +1,8 @@
+.vscode
 bower_components
 node_modules
 
 bs-config.json
 jsconfig.json
 
-npm-debug.log.*
+npm-debug.log
