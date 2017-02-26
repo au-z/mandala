@@ -1,0 +1,115 @@
+#mandala-ui{
+  position: fixed;
+  left: 0;
+  min-width: 160px;
+  z-index: 200;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-top: 20px;
+}
+
+.legend{
+  position: absolute;
+  border-bottom-right-radius: 4px;  
+  top: 0;
+  width: 300px;
+  overflow: hidden;
+}
+
+.legend div{
+  float: left;
+  width: 100px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+.legend div.shape-radius{ background-color: #59323C; color: white;}
+.legend div.vert-count{ background-color: #BFAF80; }
+.legend div.vert-radius{ background-color: #ff374f; color: white; }
+
+.tray{
+  height: 20px;
+  width: 100%;
+  background-color: #ff374f;
+  color: white;
+  text-align: center;
+}
+
+.mdla-item{
+  border-top: 1px solid #ddd;
+}
+.mdla-item:last-child{
+  border-bottom-right-radius: 4px;
+  overflow: hidden;
+}
+.mdla-item:first-child{
+  border-top: none;
+}
+.mdla-item > div {
+  padding: 4px 8px;  
+}
+.mdla-item > .header {
+  position: relative;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #eee;
+}
+.mdla-item > .header .debug-toggle {
+  position: absolute;
+  right: 4px;
+  top: 1px;
+  font-size: 12px;
+  color: #4499ff;
+}
+
+.mdla-item > .header .debug-toggle i {
+  margin-top: -2px;
+}
+
+.mdla-nodes.level {
+  border-top: 1px solid #eee;
+  background-color: white;
+  min-height: 30px;  
+}
+.mdla-nodes.new-node {
+  border-color: lightskyblue !important;
+  border: 1px solid #eee;
+  min-height: 30px;
+}
+.mdla-nodes.new-node:hover {
+  cursor: pointer;
+  border-color: deepskyblue;
+}
+
+.mdla-nodes div.input{
+  width: 36px;
+  float: left;
+  margin: 0 4px;
+}
+.mdla-nodes .input.shape-radius input{ border-color: #59323C; }
+.mdla-nodes .input.vert-count input{ border-color: #BFAF80; }
+.mdla-nodes .input.vert-radius input{ border-color: #ff374f; }
+.mdla-nodes input[type=number] {
+  width: 100%;
+  font-size: 12px;
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #444;
+  border-bottom: 2px solid #333;
+}
+.mdla-nodes.new-node > span {
+  color: #444;
+  margin-top: 3px;
+  display: block;
+  text-align: center;
+}
+.mdla-nodes.level_1 {border-left: 8px solid #222;}
+.mdla-nodes.level_2 {border-left: 16px solid #222;}
+.mdla-nodes.level_3 {border-left: 24px solid #222;}
+.mdla-nodes.level_4 {border-left: 32px solid #222;}
+.mdla-nodes.level_5 {border-left: 40px solid #222;}
+.mdla-nodes.level_6 {border-left: 48px solid #222;}
+.mdla-nodes.level_7 {border-left: 56px solid #222;}
+.mdla-nodes.level_8 {border-left: 64px solid #222;}
+.mdla-nodes.level_9 {border-left: 72px solid #222;}

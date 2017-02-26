@@ -1,0 +1,15 @@
+{
+  "name": "E1",
+  "debug": false,
+  "gon": {
+    "root": { "vertCount": 3, "radius" : 20 }
+  },
+  "vert": {
+    "p1": { "radius" : 4 },
+    "p2": { "radius" : 2 }
+  },
+  "nodes": [
+    { "gon": "root", "vert": "p1", "link": 1},
+    { "gon": "root", "vert": "p2"}
+  ]
+}

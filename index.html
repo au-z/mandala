@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pythagoras - Samples</title>
-	<link rel="stylesheet" href="dist/pythagoras.min.css">
-	<link rel="stylesheet" href="examples/style.css">
-	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<title>Mandala</title>
+	<link rel="stylesheet" type="text/css" href="css/mandala.css" />
+	<link rel="stylesheet" type="text/css" href="css/mandala-ui.css" />
 	<script src="node_modules/vue/dist/vue.js"></script>
+	<script src="node_modules/lodash/lodash.js"></script>
 </head>
-<body id="pythagoras">
-<div id="wrap">
-	<div class="effect" v-if="effects[currentEffect].html !== '{0}' && effects[currentEffect].css" v-cloak>
-		{{{effects[currentEffect].html}}}
+<body id="wrap">
+	<div id="mandala-ui">
+		<div class="legend">
+			<div class="shape-radius">Shape radius</div>
+			<div class="vert-count">Vert count</div>
+			<div class="vert-radius">Vert radius</div>
+		</div>
+		<div class="mdla-item" v-for="(m, i) in mandalas">
+			<div class="header">Mandala {{i}}: {{m.name}} 
+				<span class="debug-toggle"><input type="checkbox" title="Debug mode" v-model="m.debug"></input></span>
+			</div>
+			<div :class="'mdla-nodes level level_' + i" v-for="(n, i) in m.nodes">
+				<div class="input shape-radius"><input type="number" min="1" :title="n.gon + ' radius'" v-model.number="m.gon[n.gon].radius"></input></div>
+				<div class="input vert-count"><input type="number" min="1" :title="n.gon + ' vertices'" v-model.number="m.gon[n.gon].vertCount"></input></div>
+				<div class="input vert-radius"><input type="number" min="1" :title="n.vert + ' radius'" v-model.number="m.vert[n.vert].radius"></input></div>
+			</div>
+			<!--<div :class="'mdla-nodes new-node level_' + m.nodes.length">
+				<span class="center">New level</span>
+			</div>-->
+		</div>
 	</div>
-	<style>
-		{{{effects[currentEffect].css}}}
-	</style>
-</div>
-<script src="dist/pythagoras.min.js"></script>
-<script src="examples/pythagoras.vue.js"></script>
+	<div id="mandala"></div>
+	<script>
+		var _mandalaEffects = [
+			{uri: 'effects/e1'},
+			{uri: 'effects/e2'},
+			// {uri: 'effects/e3'},
+		];
+	</script>
+	<script src="js/mandala.js"></script>
+	<script src="js/mandala-ui.js"></script>
 </body>
 </html>

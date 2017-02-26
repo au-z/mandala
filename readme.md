@@ -1,11 +1,11 @@
-# Pythagoras
+# Mandala
 
 Create complex geometric animations in pure CSS with a few lines of JSON. 
-Pythagoras does away with laborious recursive markup and standardizes a flexible syntax oriented towards building nested geometric pattens in the browser. 
+Mandala does away with laborious recursive markup and standardizes a flexible syntax oriented towards building nested geometric pattens in the browser. 
 
 ## Installation
 
-Pythagoras comes ready to tinker. When you're ready, port the dist folder to your own web projects.
+Mandala comes ready to tinker. When you're ready, port the dist folder to your own web projects.
 
 For those looking to play:
 
@@ -17,70 +17,69 @@ For those looking to play:
 
 Once starting lite-server with `npm start`, browse to localhost:3000 to begin.
 
-*Disclaimer: Pythagoras is more art project than code-base. It's designed for the enlightened, modern browser. Vendor prefixed CSS and polyfills are not planned. If you're looking the next best framework to do some crazy IE8 native CSS animations, look no further.*
+*Disclaimer: Mandala is more 'art project' than 'robust code-base.' It's designed for the enlightened, modern browser. Vendor prefixed CSS and polyfills are not planned. If you're looking the next best framework to do some crazy IE8 native CSS animations, your princess is in another castle.*
 
-*Note: Pythagoras uses Vue.JS for data binding for ease of use and includes a Jquery CDN link for easy DOM querying but the dist directory is dependency-less!*
+*Note: Mandala uses VueJS for a small management component. However, the dist directory is dependency-less!*
 
-Pythagoras design files are located in the effects folder. Each effect is described by a .json file. Matching .css files provide extra effect-specific styles.
-The examples there should get you off the ground but here's a primer on a basic Pythagoras design file.
+Mandala template files are located in the /effects folder. Each mandala is described by a .json file. Matching .css files provide extra effect-specific styles and animations.
+The examples in the project should get you off the ground but here's a primer on a basic Mandala design file.
 
 JSON files look like this:
 ```json
 {
-  "name": "Sir Gallahad",
-  "shapes": {
-    "tri-20": { "attrs": ["tri", "a-20"], "particleCount": 3 }
+  "name": "E1",
+  "debug": false,
+  "gon": {
+    "root": { "vertCount": 3, "radius" : 20 }
   },
-  "particleIterators": ["A", "B", "C"],
-  "particles": {
-    "circle-10": { "attrs": ["circle", "r-10"] }
+  "vert": {
+    "p1": { "radius" : 4 },
+    "p2": { "radius" : 2 }
   },
-  "design": {
-    "L0": { "shape": "tri-20", "particles": "circle-10", "link": "L1"},
-    "L1": { "shape": "tri-20", "particles": "circle-10"}
-  }
+  "nodes": [
+    { "gon": "root", "vert": "p1", "link": 1},
+    { "gon": "root", "vert": "p2"}
+  ]
 }
 ```
 
 __Name:__ Give the effect a name.
 
-__Shapes:__ Shapes describe the different shapes available. Attrs should be a list of CSS classes to assign to the resulting div. Inspect the sass folder for a list of shape classes. Better yet, dive in and experiment! 
-Particle count signifies the number of vertices associated with each shape.
+__Debug:__ Specifies whether to render a thin outline and border around your polygons and verts for easy debugging. 
 
-__Particles:__ Describes the types of divs to position centered on each shape's vertex. Attrs signify a list of CSS classes to assign to the resulting div.
+__Gon:__ The Gon collection describes the various polygons available. vertCount signifies the number of vertices associated with each polygon.
 
-__Particle Iterators:__ A list of class names to assign to each particle for each shape. In this case, no shape exceeds three vertices so 'A', 'B', and 'C' work fine. 
-...*Note: this may become deprecated soon. Particle Iterators must be within [A-Z] and will be moving away from design configuration to the node tree building step.*
+__Vert:__ The vert collection describes the types of vertices to describe the gon. For now, all verts are circular. However, this can be overridden with some custom CSS.
 
-__Design:__ This object is the key to Pythagoras. It contains a map of objects that describe each level of the resulting DOM tree. 
-For now, each level must consist of homogeneous particles, hence the single "particles" property. 
-The "link" property specifies which shape each child in a particular level will contain.
+__Nodes:__ Nodes contains a collection of objects that describe each level of the resulting DOM tree.
+For now, each level must consist of homogeneous particles, hence the single "vert" property. 
+The "link" property acts as a pointer to direct the Mandala parser to any child nodes. Be careful not to add any loops :).
 The example design (above) renders to this:
 
 ```html
-<div id="el-0" class="L0 shape root tri a-20">
-  <div id="el-1" class="L0 A circle r-10">
-    <div id="el-2" class="L1 shape  tri a-20">
-      <div id="el-3" class="L1 A circle r-10"></div>
-      <div id="el-4" class="L1 B circle r-10"></div>
-      <div id="el-5" class="L1 C circle r-10"></div>
+<div class="E1 gon depth_0">
+  <div class="E1 vert depth_0 n_0">
+    <div class="E1 gon depth_1">
+      <div class="E1 vert depth_1 n_0"></div>
+      <div class="E1 vert depth_1 n_1"></div>
+      <div class="E1 vert depth_1 n_2"></div>
     </div>
   </div>
-  <div id="el-6" class="L0 B circle r-10">
-    <div id="el-7" class="L1 shape  tri a-20">
-      <div id="el-8" class="L1 A circle r-10"></div>
-      <div id="el-9" class="L1 B circle r-10"></div>
-      <div id="el-10" class="L1 C circle r-10"></div>
+  <div class="E1 vert depth_0 n_1">
+    <div class="E1 gon depth_1">
+      <div class="E1 vert depth_1 n_0"></div>
+      <div class="E1 vert depth_1 n_1"></div>
+      <div class="E1 vert depth_1 n_2"></div>
     </div>
   </div>
-  <div id="el-11" class="L0 C circle r-10">
-    <div id="el-12" class="L1 shape  tri a-20">
-      <div id="el-13" class="L1 A circle r-10"></div>
-      <div id="el-14" class="L1 B circle r-10"></div>
-      <div id="el-15" class="L1 C circle r-10"></div>
+  <div class="E1 vert depth_0 n_2">
+    <div class="E1 gon depth_1">
+      <div class="E1 vert depth_1 n_0"></div>
+      <div class="E1 vert depth_1 n_1"></div>
+      <div class="E1 vert depth_1 n_2"></div>
     </div>
   </div>
-</div>
+</div>
 ```
 
 The design section makes specifying complex nestings of thousands of divs trivial. Neat, huh?

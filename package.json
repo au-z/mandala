@@ -1,33 +1,31 @@
 {
-  "name": "pythagoras",
-  "version": "1.0.0",
-  "description": "Create complex geometric animations in pure CSS with a few lines of JSON",
+  "name": "mandala",
+  "version": "2.0.1",
+  "description": "Create complex geometric animations in JS with a few lines of JSON",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "start": "concurrent \"npm run lite\" \"gulp sass:w\" \"gulp js:w\""
+    "start": "concurrent \"npm run lite\" \"gulp js:w\""
   },
   "keywords": [
     "geometry",
-    "css",
     "animation",
-    "pythagoras"
+    "mandala"
   ],
   "author": "Austin Martin",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^2.2.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
-    "gulp-cssmin": "^0.1.7",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-watch": "^4.3.9",
     "lite-server": "^2.2.2",
     "pump": "^1.0.1",
-    "vue": "^1.0.26"
+    "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
   }
 }
