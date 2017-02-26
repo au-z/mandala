@@ -2,6 +2,7 @@ const Mandalas = (function(obj, styleTitle) {
   const OBJ = _mandalaEffects;
   const STYLE_TITLE = 'mandala-css';
   const effects = obj || OBJ;
+  let created = [];
 
   if(typeof Promise == 'undefined' && Promise.toString().indexOf('[native code]') == -1) {
     throw new Error('Sorry, promises are not supported by your browser. :( Try another browser.');
@@ -17,21 +18,17 @@ const Mandalas = (function(obj, styleTitle) {
   }
 
   /**
-   * Create a new Mandala
+   * Create a new Mandala from either a uri template file or json data
    * @param {string} uri relative path of the json template
+   * @param {string} json json data to create effect with
    */
-  function Mandala(uri) {
+  function Mandala(uri, json) {
     let _name; // If not found in template json, a random string is used.
     let _debug; // Enables special debug styling to view layouts.
     let _json; // Tne template effect file.
     let _gon; // Each (poly)gon. gon[0] becomes the final mandala tree.
     let _html; // The final appended html.
     let _styleDict; // A dictionary of style rule keys that were injected.
-
-    if(!uri) throw new Error('No template file uri specified.');
-    let createMandala = get(uri, '.json').then((json) => renderMandala(json));
-    let styleMandala = get(uri, '.css').then((css) => injectCss(css));
-    
 
     /**
      * @param {string} json the Mandala template
@@ -43,7 +40,8 @@ const Mandalas = (function(obj, styleTitle) {
       _styleDict = {};
       _json = json;
       _debug = _json.debug || false;
-      _name = _json.name || Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+      if(!_json.name) _json.name = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+      _name = _json.name;
 
       assembleGons(0);
       linkGons(_gon[0]);
@@ -55,6 +53,7 @@ const Mandalas = (function(obj, styleTitle) {
       let mount = document.getElementById('mandala');
       let container = document.createElement('div');
       container.setAttribute('class', 'mandala-container');
+      container.setAttribute('id', 'mandala_' + _name);
       container.appendChild(_html);
       mount.appendChild(container);
       return json;
@@ -248,6 +247,14 @@ const Mandalas = (function(obj, styleTitle) {
     
     // End utility functions
 
+    if(!uri && !json) throw new Error('No template file uri or json specified.');
+    let createMandala = (uri) ?
+      get(uri, '.json').then((json) => renderMandala(json)) :
+      renderMandala(json);
+    let styleMandala = (uri) ? 
+      get(uri, '.css').then((css) => injectCss(css)) :
+      {};
+
     return new Promise((resolve, reject) => {
       Promise.all([createMandala, styleMandala]).then((values) => {
         resolve(values[0]);
@@ -255,5 +262,22 @@ const Mandalas = (function(obj, styleTitle) {
     });
   };
 
-  return effects.map((e) => e = new Mandala(e.uri));  
+  function create(json) {
+    created.push(new Mandala(null, json));
+  }
+
+  function erase(name) {
+    let parent = document.getElementById('mandala');
+    let el = document.getElementById('mandala_' + name);
+    if(!el) throw new Error('Cannot find mandala with name ' + name);
+    parent.removeChild(el);
+  }
+
+  created = effects.map((e) => e = new Mandala(e.uri, null));
+
+  return {
+    created: created,
+    erase: erase,
+    create: create,
+  };
 })();

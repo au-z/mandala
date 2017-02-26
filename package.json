@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "start": "concurrent \"npm run lite\" \"gulp sass:w\" \"gulp js:w\""
+    "start": "concurrent \"npm run lite\" \"gulp js:w\""
   },
   "keywords": [
     "geometry",
@@ -16,12 +16,16 @@
   "author": "Austin Martin",
   "license": "MIT",
   "devDependencies": {
-    "lite-server": "^2.2.2",
     "concurrently": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
-    "gulp-uglify": "^2.0.0",
     "gulp-rename": "^1.2.2",
-    "pump": "^1.0.1"
+    "gulp-uglify": "^2.0.0",
+    "lite-server": "^2.2.2",
+    "pump": "^1.0.1",
+    "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
   }
 }
