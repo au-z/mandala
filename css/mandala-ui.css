@@ -35,7 +35,7 @@
 }
 
 .mdla-item{
-  border-top: 1px solid #ddd;
+  border-top: 2px solid #222;
 }
 .mdla-item:last-child{
   border-bottom-right-radius: 4px;
@@ -52,6 +52,7 @@
   font-size: 12px;
   font-weight: bold;
   background-color: #eee;
+  box-shadow: 0 0 5px rgba(100,100,100,0.5);
 }
 .mdla-item > .header .debug-toggle {
   position: absolute;
@@ -73,11 +74,13 @@
 .mdla-nodes.new-node {
   border-color: lightskyblue !important;
   border: 1px solid #eee;
+  background-color: white;
   min-height: 30px;
+  transition: all .5s;
 }
 .mdla-nodes.new-node:hover {
   cursor: pointer;
-  border-color: deepskyblue;
+  background-color: lightskyblue;
 }
 
 .mdla-nodes div.input{
@@ -113,3 +116,10 @@
 .mdla-nodes.level_7 {border-left: 56px solid #222;}
 .mdla-nodes.level_8 {border-left: 64px solid #222;}
 .mdla-nodes.level_9 {border-left: 72px solid #222;}
+
+.copy-mandala{
+  background-color: #ddd;
+}
+.copy-mandala > label{
+  font-size: 12px;
+}

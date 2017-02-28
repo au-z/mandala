@@ -17,7 +17,8 @@ const MandalaUI = (function() {
 new Vue({
   el: '#mandala-ui',
   data: {
-    mandalas: null,
+    mandalas: [],
+    copiedMandala: '',
   },
   watch: {
     mandalas: {
@@ -25,6 +26,10 @@ new Vue({
       handler: function() {
         this.refreshMandalas();
       },
+    },
+    copiedMandala: function(val) {
+      const json = JSON.parse(val);
+      console.log(json);
     },
   },
   created: function() {
@@ -34,12 +39,24 @@ new Vue({
     templateMandala: function() {
       MandalaUI.detect().then((mandalas) => this.mandalas = mandalas );
     },
+    newLevel: function(i) {
+      const name = this.randomName();
+      this.$set(this.mandalas[i].gon, name, {vertCount: 5, radius: 50});
+      this.$set(this.mandalas[i].vert, name, {radius: 5});
+      const nodesLength = this.mandalas[i].nodes.length;
+      this.$set(this.mandalas[i].nodes[nodesLength - 1], 'link', nodesLength);
+      this.mandalas[i].nodes.push({gon: name, vert: name});
+      this.refreshMandalas();
+    },
     refreshMandalas: _.debounce(function() {
       this.mandalas.forEach((m) => {
         Mandalas.erase(m.name);
         Mandalas.create(m);
       });
     }, 300),
+    randomName: function() {
+      return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+    },
   },
 });
 
@@ -66,6 +83,7 @@ const Mandalas = (function(obj, styleTitle) {
    * Create a new Mandala from either a uri template file or json data
    * @param {string} uri relative path of the json template
    * @param {string} json json data to create effect with
+   * @return {Object} Mandala public API
    */
   function Mandala(uri, json) {
     let _name; // If not found in template json, a random string is used.
@@ -101,6 +119,7 @@ const Mandalas = (function(obj, styleTitle) {
       container.setAttribute('id', 'mandala_' + _name);
       container.appendChild(_html);
       mount.appendChild(container);
+
       return json;
     }
 
@@ -110,9 +129,8 @@ const Mandalas = (function(obj, styleTitle) {
      */
     let GonElement = function(gon) {
       let gonEl = document.createElement('div');
-      gonEl.setAttribute('class', 
-        _name + ' gon depth_' + gon.depth + ((_debug) ? ' debug' : '')
-      );
+      const c = _name + ' gon depth_' + gon.depth + ((_debug) ? ' debug' : '');
+      gonEl.setAttribute('class', c);
       return gonEl;
     };
 
@@ -207,7 +225,7 @@ const Mandalas = (function(obj, styleTitle) {
 
       _gon[itr] = {
         depth: itr,
-        gon: _json.gon[node.gon],
+        gon: copy(_json.gon[node.gon]),
         parentVertRadius: 0,
         vert: [],
       };
@@ -314,7 +332,7 @@ const Mandalas = (function(obj, styleTitle) {
   function erase(name) {
     let parent = document.getElementById('mandala');
     let el = document.getElementById('mandala_' + name);
-    if(!el) throw new Error('Cannot find mandala with name ' + name);
+    if(!el) console.info('Cannot find mandala with name ' + name);
     parent.removeChild(el);
   }
 

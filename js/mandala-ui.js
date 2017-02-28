@@ -17,7 +17,8 @@ const MandalaUI = (function() {
 new Vue({
   el: '#mandala-ui',
   data: {
-    mandalas: null,
+    mandalas: [],
+    copiedMandala: '',
   },
   watch: {
     mandalas: {
@@ -25,6 +26,10 @@ new Vue({
       handler: function() {
         this.refreshMandalas();
       },
+    },
+    copiedMandala: function(val) {
+      const json = JSON.parse(val);
+      console.log(json);
     },
   },
   created: function() {
@@ -34,11 +39,23 @@ new Vue({
     templateMandala: function() {
       MandalaUI.detect().then((mandalas) => this.mandalas = mandalas );
     },
+    newLevel: function(i) {
+      const name = this.randomName();
+      this.$set(this.mandalas[i].gon, name, {vertCount: 5, radius: 50});
+      this.$set(this.mandalas[i].vert, name, {radius: 5});
+      const nodesLength = this.mandalas[i].nodes.length;
+      this.$set(this.mandalas[i].nodes[nodesLength - 1], 'link', nodesLength);
+      this.mandalas[i].nodes.push({gon: name, vert: name});
+      this.refreshMandalas();
+    },
     refreshMandalas: _.debounce(function() {
       this.mandalas.forEach((m) => {
         Mandalas.erase(m.name);
         Mandalas.create(m);
       });
     }, 300),
+    randomName: function() {
+      return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+    },
   },
 });
