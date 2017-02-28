@@ -23,9 +23,12 @@
 				<div class="input vert-count"><input type="number" min="1" :title="n.gon + ' vertices'" v-model.number="m.gon[n.gon].vertCount"></input></div>
 				<div class="input vert-radius"><input type="number" min="1" :title="n.vert + ' radius'" v-model.number="m.vert[n.vert].radius"></input></div>
 			</div>
-			<!--<div :class="'mdla-nodes new-node level_' + m.nodes.length">
-				<span class="center">New level</span>
-			</div>-->
+			<div :class="'mdla-nodes new-node level_' + m.nodes.length" @click="newLevel(i)">
+				<span class="center">+</span>
+			</div>
+			<div class="copy-mandala">
+				<label>Copy</label>
+				<input type="text" :value="JSON.stringify(m)" v-model="copiedMandala"></input></div>
 		</div>
 	</div>
 	<div id="mandala"></div>
