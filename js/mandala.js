@@ -5,7 +5,7 @@ const Mandalas = (function(obj, styleTitle) {
   let created = [];
 
   if(typeof Promise == 'undefined' && Promise.toString().indexOf('[native code]') == -1) {
-    throw new Error('Sorry, promises are not supported by your browser. :( Try another browser.');
+    throw new Error('Sorry, Promises are not supported by your browser. :( Try another browser.');
   }
 
   if(!String.prototype.format) {
@@ -32,7 +32,8 @@ const Mandalas = (function(obj, styleTitle) {
     let _styleDict; // A dictionary of style rule keys that were injected.
 
     /**
-     * @param {string} json the Mandala template
+     * @param {Object} json the Mandala template
+     * @return {Object} the input json
      */
     function renderMandala(json) {
       _json = null;
@@ -81,8 +82,7 @@ const Mandalas = (function(obj, styleTitle) {
      */
     let VertElement = function(gon, vert, n, N) {
       let vertEl = document.createElement('div');
-      vertEl.setAttribute('class',
-        _name + ' vert depth_' + gon.depth + ((_debug) ? ' debug' : '' + ' n_' + n));
+      vertEl.setAttribute('class', _name + ' vert depth_' + gon.depth + ((_debug) ? ' debug' : '' + ' n_' + n));
       let gonR = gon.gon.radius;
       let vertR = vert.radius;
       let theta = (2 * Math.PI / N);
@@ -248,7 +248,9 @@ const Mandalas = (function(obj, styleTitle) {
     
     // End utility functions
 
-    if(!uri && !json) throw new Error('No template file uri or json specified.');
+    if(!uri && !json) {
+      throw new Error('No template file uri or json specified.');
+    }
     let createMandala = (uri) ?
       get(uri, '.json').then((json) => renderMandala(json)) :
       renderMandala(json);
