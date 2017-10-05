@@ -1,6 +1,6 @@
 (function(obj, styleTitle) {
-  const OBJ = _mandalaEffects;
-  const STYLE_TITLE = 'mandala';
+  const OBJ = _mandalaEffects
+  const STYLE_TITLE = 'mandala'
 
   if(typeof Promise == 'undefined' && Promise.toString().indexOf('[native code]') == -1) {
     throw new Error('Sorry, promises are not supported by your browser. :( Try another browser.');
