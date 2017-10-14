@@ -20,14 +20,15 @@ const Mandala = ((uri, json, options) => {
   let name = null
 
   const buildMandala = (json = {}) => {
+    const debug = json.debug || false;
     Check.empty(json.nodes, 'Template file contains 0 nodes.')
-    Check.falsies([true, true, true])
     let polygons = createPolygons(json)
     linkPolygons(polygons, polygons[0])
 
     let html = new Polygon(polygons[0], debug)
-    domify(html, polygons[0])
+    domify(html, polygons[0], debug)
     mount(html, polygons[0].name)
+    return json
   }
 
   const mount = (html, name) => {
@@ -58,7 +59,7 @@ const Mandala = ((uri, json, options) => {
     }
   })
 
-  const domify = (htmlNode, polygon) => polygon.vert.forEach((v, i) => {
+  const domify = (htmlNode, polygon, debug) => polygon.vert.forEach((v, i) => {
     const vertNode = new Vertex(polygon, v, i, polygon.vert.length)
     htmlNode.appendChild(vertNode)
     if(v.child) {
@@ -73,7 +74,7 @@ const Mandala = ((uri, json, options) => {
 
   return new Promise((resolve, reject) => {
     Promise.all([createMandala$, styleMandala$]).then((values) => {
-      resolve(values[0]) // return the created Mandala
+      resolve(values[0]) // return the json
     })
   })
 })

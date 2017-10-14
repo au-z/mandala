@@ -1,6 +1,7 @@
 import StringExtensions from './helpers/StringExtensions'
 import Check from './helpers/Check'
 import Mandala from './Mandala'
+import MandalaUi from './MandalaUi'
 
 Check.feature('Promise')
 
@@ -8,7 +9,11 @@ module.exports = ((conf, opt = {}) => {
   Check.falsy(conf, 'No configuration provided.')
   Check.typeOf(conf, 'Array')
   Check.typeOf(opt, 'Object')
-  opt.styleTitle = opt.styleTitle || 'mandala-css'
+  const uiEnabled = opt.uiEnabled || false;
+  
+  let container = document.getElementById('mandala')
+  if(!container) throw new Error('Cannot find container with id \'mandala\'')
+
   let mandalaEffects = conf.map((c) => new Mandala(c.uri, null, opt))
 
   /**
@@ -16,7 +21,7 @@ module.exports = ((conf, opt = {}) => {
    * @param {Object} json template json for mandala effect
    */
   const create = (json) => {
-    created.push(new Mandala(null, json, opt))
+    mandalaEffects.push(new Mandala(null, json, opt))
   }
 
   /**
@@ -29,6 +34,8 @@ module.exports = ((conf, opt = {}) => {
     Check.falsy(el, `Cannot find mandala with name: ${name}`)
     parent.removeChild(el)
   }
+
+  if(uiEnabled) new MandalaUi(container, mandalaEffects, create, erase);
 
   return {
     create,

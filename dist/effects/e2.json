@@ -11,8 +11,8 @@
     "p3": { "radius" : 3 }
   },
   "nodes": [
-    { "gon": "root", "vert": "p1", "link": 1},
-    { "gon": "l1", "vert": "p2", "link": 2},
+    { "gon": "root", "vert": "p1"},
+    { "gon": "l1", "vert": "p2"},
     { "gon": "root", "vert": "p3"}
   ]
 }

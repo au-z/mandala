@@ -1,14 +1,41 @@
 .E3.vert{
-  background-color: rgba(212,243,161,0.4);
+  background-color: #444;
+  /* background-color: transparent; */
 }
 
+
+.E3.vert.depth_2{
+  transform-origin: 100% 100% 0;
+  /* animation: colorPulse 7s infinite ease-in-out; */
+}
+
+@keyframes colorPulse{
+  50%{
+    background-color: #fff;
+  }
+}
+
+@keyframes marginPulse{
+  50%{
+    padding-bottom: 40px;
+  }
+}
+
+.E3.vert.depth_0 {
+  border: 1px solid black;
+  /* animation: marginPulse 1s infinite ease-in-out; */
+}
+.E3.vert.depth_1 {
+  transform-origin: 100% 100% 0;
+  animation: marginPulse 2s infinite ease-in-out;
+}
 .E3.vert.depth_0,
 .E3.vert.depth_1{
   background-color: transparent;
 }
 
 .E3.gon.depth_0{
-  animation: spinCC 80s infinite linear;
+  animation: spinCC 90s infinite linear;
 }
 
 .E3.gon.depth_1{
@@ -16,5 +43,5 @@
 }
 
 .E3.gon.depth_2{
-  animation: spinC 30s infinite linear;
+  animation: spinC 40s infinite linear;
 }

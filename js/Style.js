@@ -51,10 +51,26 @@ const Style = (() => {
     styleDict[vertSelector] = true
   }
 
+  const styleVertex = (polygon, vertex, n, N) => {
+    const pR = polygon.gon.radius
+    const vR = vertex.radius
+    const theta = (2 * Math.PI / N)
+    const left = pR * Math.sin(n * theta) + pR - vR
+    const bottom = pR * Math.cos(n * theta) + pR - vR
+    const vertSelector = `.${polygon.name}.vert.${depthStr(polygon.depth)}.num${n}_${N}`
+    !styleDict[vertSelector] && injectCss(`${vertSelector}{
+      left: {0}px;
+      bottom: {1}px;
+      margin: 0;
+      transform: rotate(${360/N * n}deg);
+    }\n`.format(left, bottom))
+  }
+
   return {
     injectCss,
     setStyleTitle,
     stylePolygon,
+    styleVertex,
   }
 })()
 

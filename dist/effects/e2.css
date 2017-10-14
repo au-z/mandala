@@ -1,5 +1,5 @@
 .E2.vert{
-  background-color: #61BAAE;
+  background-color: #dadadf;
 }
 .E2.vert.depth_1{
   background-color: transparent;
@@ -16,9 +16,9 @@
 }
 
 
-.E2.vert.depth_2{
+/* .E2.vert.depth_2{
   animation: colorPulse 3.5s infinite ease-in-out;
-}
+} */
 .E2.vert.depth_2.n_1{
   animation-delay: 1s;
 }
@@ -40,7 +40,7 @@
 
 @keyframes colorPulse{
   50%{
-    background-color: #333;
+    background-color: #fff;
   }
 }
 

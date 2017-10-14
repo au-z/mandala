@@ -31,13 +31,18 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js',
+    },
+  },
   plugins: [], // important
   devServer: {
     contentBase: path.join(__dirname, '/dist'),
     compress: true,
     port: 3414,
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
   },
   devtool: '#eval-source-map'
 }

@@ -1,0 +1,23 @@
+.E4.vert{
+  background-color: #39e9ff;
+}
+
+.E4.gon.depth_0{
+  animation: spinC 5s infinite linear;
+}
+
+.E4.gon.depth_1{
+  animation: spinCC 24s infinite linear;
+}
+
+@keyframes spinC{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinCC{
+  100%{
+    transform: rotate(-360deg);
+  }
+}

@@ -2,18 +2,18 @@
   "name": "E3",
   "debug": false,
   "gon": {
-    "root": { "vertCount": 20, "radius" : 240 },
+    "root": { "vertCount": 20, "radius" : 300 },
     "l1": { "vertCount": 10, "radius" : 120 },
     "l2": { "vertCount": 5, "radius" : 30 },
-    "l3": { "vertCount": 5, "radius" : 400 }
+    "l3": { "vertCount": 9, "radius" : 200 }
   },
   "vert": {
     "p1": { "radius" : 6 },
     "p2": { "radius" : 1 }
   },
   "nodes": [
-    { "gon": "root", "vert": "p2", "link": 1},
-    { "gon": "l1", "vert": "p2", "link": 2},
+    { "gon": "root", "vert": "p2"},
+    { "gon": "l1", "vert": "p2"},
     { "gon": "l2", "vert": "p2"}
   ]
 }
