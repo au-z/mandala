@@ -1,41 +1,53 @@
-import StringExtensions from './helpers/StringExtensions'
-import Check from './helpers/Check'
 import Mandala from './Mandala'
 import MandalaUi from './MandalaUi'
 
+import {get, FileExt} from './helpers/Http'
+import StringExtensions from './helpers/StringExtensions'
+import Check from './helpers/Check'
+
 Check.feature('Promise')
 
-module.exports = ((conf, opt = {}) => {
-  Check.falsy(conf, 'No configuration provided.')
-  Check.typeOf(conf, 'Array')
-  Check.typeOf(opt, 'Object')
-  const uiEnabled = opt.uiEnabled || false;
+module.exports = ((config, options = {}) => {
+  Check.falsy(config, 'No configuration provided.')
+  Check.typeOf(config, 'Array')
+  Check.typeOf(options, 'Object')
+  const uiEnabled = options.uiEnabled || false
   
   let container = document.getElementById('mandala')
   if(!container) throw new Error('Cannot find container with id \'mandala\'')
 
-  let mandalaEffects = conf.map((c) => new Mandala(c.uri, null, opt))
+  const mandalaEffects = []
+  config.forEach((c) => {
+    const createMandala = get(c.uri, FileExt.JSON)
+    const styleMandala = get(c.uri, FileExt.CSS)
+    Promise.all([createMandala, styleMandala])
+      .then((values) => registerEffect(values[0], values[1]))
+  })
 
-  /**
-   * Create a new mandala effect from JSON template
-   * @param {Object} json template json for mandala effect
-   */
-  const create = (json) => {
-    mandalaEffects.push(new Mandala(null, json, opt))
+  function registerEffect(json, css) {
+    mandalaEffects.push(new Mandala(json, css, options))
+    console.log(mandalaEffects)
+    if(uiEnabled) new MandalaUi(container, mandalaEffects, create, erase)
   }
 
-  /**
-   * Removes a mandala effect from the DOM
-   * @param {String} name name of the effect
-   */
-  const erase = (name) => {
-    let parent = document.getElementById('mandala')
-    let el = document.getElementById('mandala_' + name)
-    Check.falsy(el, `Cannot find mandala with name: ${name}`)
-    parent.removeChild(el)
+  const create = (effect) => {
+    mandalaEffects.push(new Mandala(effect.json, effect.css, options))
   }
 
-  if(uiEnabled) new MandalaUi(container, mandalaEffects, create, erase);
+  const erase = (effect) => {
+    // remove effect
+    let existingIdx = mandalaEffects.findIndex((e) => e.name === effect.name)
+    if(existingIdx > -1) {
+      mandalaEffects.splice(existingIdx, 1)
+    }
+    removeByQuerySelector(`div#${effect.elId}`)
+    removeByQuerySelector(`style#${effect.styleId}`)
+  }
+
+  const removeByQuerySelector = (selector) => {
+    const el = document.querySelector(selector)
+    el.parentElement.removeChild(el)
+  }
 
   return {
     create,

@@ -1,7 +1,7 @@
 const FileExt = (() => {
   return {
-    json: '.json',
-    css: '.css',
+    JSON: '.json',
+    CSS: '.css',
   }
 })()
 

@@ -1,6 +1,6 @@
 *, *::before, *::after{box-sizing: border-box;}
 html, body{margin: 0;padding: 0;}
-#wrap{position: absolute; background-color: #faf3f2; overflow: hidden; width: 100%;height: 100%;}
+#wrap{position: absolute; background-color: #222; overflow: hidden; width: 100%;height: 100%;}
 #mandala{position: absolute; left: 50%;top: 50%;transform: translate(-50%, -50%);}
 .mandala-container{position: absolute;}
 .debug{border: 1px solid rgba(120,120,120,0.5); outline: 1px solid rgba(120,120,120,0.5);}

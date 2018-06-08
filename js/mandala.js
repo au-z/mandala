@@ -1,47 +1,68 @@
 import Check from './helpers/Check'
 import {Polygon, Vertex} from './Elements'
 import {copy, randomName, per} from './helpers/Helpers'
-import {get, FileExt} from './helpers/Http'
 import Style from './Style'
 
-if(!String.prototype.format) {
-  String.prototype.format = function(...a){
-    return this.replace(/{(\d+)}/g, (match, number) => {
-      return typeof args[number] != 'undefined' ? args[number] : match
-    })
-  }
+function Token(substr = 8) {
+  return Math.random().toString(36).substr(substr)
 }
 
-const Mandala = ((uri, json, options) => {
-  options.styleTitle && Style.setStyleTitle(options.styleTitle)
-  const debug = options.debug || false
+/**
+ * Library used to create animated mandala effects
+ * @param {String} json raw json to create a mandala from
+ * @param {String} css css
+ * @param {Object} options options for the mandala
+ * @return {Object} the json of the resolved mandala
+ */
+export default function(json, css, options = {}) {
+  const NONCE = Math.random().toString(36).substr(9)
 
-  if(!uri && !json) throw new Error('No template file or json provided.')
+  options.parentId = options.parentId || 'mandala'
+  let DEBUG = options.debug || false
+
+  if(!json || !css) throw new Error('Incomplete mandala provided. Please pass a JSON template and CSS string.')
   let name = null
 
   const buildMandala = (json = {}) => {
-    const debug = json.debug || false;
+    json.name = json.name || new Token()
+    let elId = `mandala_${json.name}`
+    let styleId = `mandala-style_${json.name}`
+    Style.setStyleId(styleId)
+
+    // erase previously saved names
+    Style.erase(json.name)
+
+    if(json.debug && !DEBUG) DEBUG = json.debug
     Check.empty(json.nodes, 'Template file contains 0 nodes.')
+    // parse json into polygons
     let polygons = createPolygons(json)
     linkPolygons(polygons, polygons[0])
 
-    let html = new Polygon(polygons[0], debug)
-    domify(html, polygons[0], debug)
-    mount(html, polygons[0].name)
-    return json
+    // turn mandala tree to html
+    let html = new Polygon(polygons[0], DEBUG)
+    domify(html, polygons[0], DEBUG)
+
+    // mount to DOM
+    mount(options.parentId, html, `${elId}`)
+
+    return {
+      json,
+      elId,
+      styleId,
+    }
   }
 
-  const mount = (html, name) => {
-    const mount = document.getElementById('mandala')
+  const mount = (parentId, node, elId) => {
+    const mount = document.getElementById(parentId)
     const container = document.createElement('div')
-    container.setAttribute('class', 'mandala-container')
-    container.setAttribute('id', 'mandala_' + name)
-    container.appendChild(html)
+    container.setAttribute('class', `mandala-container`)
+    container.setAttribute('id', elId)
+    container.appendChild(node)
     mount.appendChild(container)
   }
   
   const createPolygons = (json, itr) => json.nodes.map((n, i) => {
-    Check.falsies([n.gon, n.vert])
+    Check.falsies(n.gon, n.vert)
     return {
       depth: i,
       gon: copy(json.gon[n.gon]),
@@ -69,14 +90,12 @@ const Mandala = ((uri, json, options) => {
     }
   })
 
-  const createMandala$ = (uri) ? get(uri, FileExt.json).then(buildMandala) : buildMandala(json)
-  const styleMandala$ = (uri) ? get(uri, FileExt.css).then(Style.injectCss) : () => {}
+  const effect = buildMandala(json)
+  const styleId = Style.injectCss(css, effect.styleId)
 
-  return new Promise((resolve, reject) => {
-    Promise.all([createMandala$, styleMandala$]).then((values) => {
-      resolve(values[0]) // return the json
-    })
-  })
-})
-
-export default Mandala
+  console.log(effect, styleId)
+  return {
+    ...effect,
+    css,
+  }
+}

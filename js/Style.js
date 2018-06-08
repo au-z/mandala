@@ -1,10 +1,12 @@
 const depthStr = (depth) => `depth_${depth}`
 
 const Style = (() => {
-  let styleTitle = 'mandala-css'
+  let STYLE_ID = 'mandala-css'
   let debug = false
 
-  const setStyleTitle = (title) => styleTitle = title
+  const setStyleId = (id) => {
+    STYLE_ID = id
+  }
 
   const styleDict = {}
 
@@ -21,12 +23,14 @@ const Style = (() => {
     }
   }
 
-  const injectCss = (css) => {
-    const sheet = findStyleSheet(styleTitle)
+  const injectCss = (css, styleId = STYLE_ID) => {
+    const sheet = findStyleSheet(styleId)
     sheet.innerHTML += css
+    return styleId
   }
 
   const stylePolygon = (polygon, debug) => {
+    console.log('polygon', polygon)
     const r = polygon.gon.radius
     const margin = -1 * (r - polygon.parentVertRadius)
     const gonSelector = `.${polygon.name}.${depthStr(polygon.depth)}`
@@ -52,6 +56,7 @@ const Style = (() => {
   }
 
   const styleVertex = (polygon, vertex, n, N) => {
+    console.log('vertex', vertex)
     const pR = polygon.gon.radius
     const vR = vertex.radius
     const theta = (2 * Math.PI / N)
@@ -64,11 +69,20 @@ const Style = (() => {
       margin: 0;
       transform: rotate(${360/N * n}deg);
     }\n`.format(left, bottom))
+    styleDict[vertSelector] = true
+  }
+
+  const erase = (selector) => {
+    for(let s in styleDict) {
+      if(s.includes(selector)) styleDict[s] = false
+    }
   }
 
   return {
+    erase,
+    findStyleSheet,
     injectCss,
-    setStyleTitle,
+    setStyleId,
     stylePolygon,
     styleVertex,
   }

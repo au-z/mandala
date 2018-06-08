@@ -30,7 +30,7 @@ const Check = (() => {
 
   return {
     falsy,
-    falsies: (arr) => arr.every((a, i) => falsy(a, `Falsy value detected at index ${i}`)),
+    falsies: (...arr) => arr.every((a, i) => falsy(a, `Falsy value detected at index ${i}`)),
     empty: (a, msg) => a.length < 1 && console.error(msg),
     feature,
     typeOf,

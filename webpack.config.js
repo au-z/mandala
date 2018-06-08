@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const libraryName = 'Mandala'
 const outputFile = libraryName.toLowerCase() + ((process.env.NODE_ENV === 'production') ? '.min.js' : '.js')
@@ -29,14 +29,29 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader',
+        ],
+      },
     ],
   },
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.js',
+      'vue$': 'vue/dist/vue.esm.js',
     },
   },
-  plugins: [], // important
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
   devServer: {
     contentBase: path.join(__dirname, '/dist'),
     compress: true,
@@ -52,10 +67,6 @@ if (process.env.NODE_ENV === 'production') {
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins).concat([
     new webpack.DefinePlugin({'process.env': {NODE_ENV: '"production"'}}),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {warnings: false}
-    }),
     new webpack.LoaderOptionsPlugin({minimize: true}),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '/dist/index.html'),

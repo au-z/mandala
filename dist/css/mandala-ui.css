@@ -4,7 +4,7 @@
   top: 0;
   min-width: 160px;
   z-index: 200;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Consolas', sans-serif;
   padding-top: 20px;
 }
 
@@ -23,21 +23,14 @@
   line-height: 20px;
   text-align: center;
 }
-.legend div.shape-radius{ background-color: #59323C; color: white;}
-.legend div.vert-count{ background-color: #BFAF80; }
-.legend div.vert-radius{ background-color: #ff374f; color: white; }
 
 .tray{
   height: 20px;
   width: 100%;
-  background-color: #ff374f;
   color: white;
   text-align: center;
 }
 
-.mdla-item{
-  border-top: 2px solid #222;
-}
 .mdla-item:last-child{
   border-bottom-right-radius: 4px;
   overflow: hidden;
@@ -70,7 +63,7 @@
 .mdla-nodes.level {
   border-top: 1px solid #eee;
   background-color: white;
-  min-height: 30px;  
+  min-height: 30px;
 }
 .mdla-nodes.new-node {
   border-color: lightskyblue !important;
@@ -89,9 +82,6 @@
   float: left;
   margin: 0 4px;
 }
-.mdla-nodes .input.shape-radius input{ border-color: #59323C; }
-.mdla-nodes .input.vert-count input{ border-color: #BFAF80; }
-.mdla-nodes .input.vert-radius input{ border-color: #ff374f; }
 .mdla-nodes input[type=number] {
   width: 100%;
   font-size: 12px;
