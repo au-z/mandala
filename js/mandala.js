@@ -39,7 +39,8 @@ export default function(json, css, options = {}) {
     linkPolygons(polygons, polygons[0])
 
     // turn mandala tree to html
-    let html = new Polygon(polygons[0], DEBUG)
+    // TODO: add CSS
+    let html = new Polygon(polygons[0], css, DEBUG)
     domify(html, polygons[0], DEBUG)
 
     // mount to DOM
@@ -81,19 +82,18 @@ export default function(json, css, options = {}) {
   })
 
   const domify = (htmlNode, polygon, debug) => polygon.vert.forEach((v, i) => {
-    const vertNode = new Vertex(polygon, v, i, polygon.vert.length)
+    const vertNode = new Vertex(polygon, v, i, polygon.vert.length, css)
     htmlNode.appendChild(vertNode)
     if(v.child) {
-      const gonNode = new Polygon(v.child, debug)
+      const gonNode = new Polygon(v.child, css, debug)
       vertNode.appendChild(gonNode)
-      return domify(gonNode, v.child)
+      return domify(gonNode, v.child, debug)
     }
   })
 
   const effect = buildMandala(json)
   const styleId = Style.injectCss(css, effect.styleId)
 
-  console.log(effect, styleId)
   return {
     ...effect,
     css,

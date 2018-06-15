@@ -1,13 +1,37 @@
 .E1.vert{
-  background-color: #FF3939;
+  background-color: #ee5b4b;
+  padding: 0;
 }
 
-.E1.gon.depth_0{
-  animation: spinC 5s infinite linear;
+.E1.vert.depth_0{
+  background: transparent;
+  animation: Bpad 4s infinite ease-in-out;
 }
 
 .E1.gon.depth_1{
-  animation: spinCC 24s infinite linear;
+  animation: spinC 10s infinite linear;
+}
+
+.E1.vert.depth_1 {
+  background: transparent;
+  animation: Lpad 2s infinite ease-in-out;
+}
+
+.E1.gon.depth_2{
+  animation: spinCC 10s infinite linear;
+}
+
+
+@keyframes Lpad {
+  50% {
+    padding-left: 40px;
+  }
+}
+
+@keyframes Bpad {
+  50% {
+    padding-bottom: 60px;
+  }
 }
 
 @keyframes spinC{
