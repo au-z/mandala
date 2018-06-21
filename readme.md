@@ -1,7 +1,7 @@
 # Mandala
 
-Create complex geometric animations in pure CSS with a few lines of JSON. 
-Mandala does away with laborious recursive markup and standardizes a flexible syntax oriented towards building nested geometric pattens in the browser. 
+> Create complex geometric animations in pure CSS with a few lines of JSON. 
+Mandala does away with laborious recursive markup and standardizes a flexible syntax oriented towards building recursive geometric pattens in the browser. 
 
 ## Installation
 

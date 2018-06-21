@@ -1,19 +1,22 @@
 {
-  "name": "mandala",
-  "version": "3.0.0",
+  "name": "mandala-js",
+  "version": "1.0.0",
   "description": "Create complex geometric animations in JS with a few lines of JSON",
-  "main": "index.html",
+  "homepage": "https://github.com/auzmartist/mandala",
+  "browser": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode=production --progress --hide-modules",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode=development --open --hot --quiet"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode=development --open --hot --quiet",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "geometry",
     "animation",
     "mandala"
   ],
-  "author": "Austin Martin",
+  "author": "Austin Martin (http://austinmart.in)",
   "license": "MIT",
+  "repository": "github:auzmartist/mandala",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",

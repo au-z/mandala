@@ -1,8 +1,9 @@
 import Mandala from './Mandala'
 import MandalaUi from './MandalaUi'
 
+import './helpers/StringExtensions.js'
+
 import {get, FileExt} from './helpers/Http'
-import StringExtensions from './helpers/StringExtensions'
 import Check from './helpers/Check'
 
 Check.feature('Promise')
@@ -26,7 +27,6 @@ module.exports = ((config, options = {}) => {
 
   function registerEffect(json, css) {
     mandalaEffects.push(new Mandala(json, css, options))
-    console.log(mandalaEffects)
     if(uiEnabled) new MandalaUi(container, mandalaEffects, create, erase)
   }
 

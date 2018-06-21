@@ -68,15 +68,11 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = (module.exports.plugins).concat([
     new webpack.DefinePlugin({'process.env': {NODE_ENV: '"production"'}}),
     new webpack.LoaderOptionsPlugin({minimize: true}),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, '/dist/index.html'),
-      inject: 'head',
-    }),
   ])
 } else {
   module.exports.plugins = (module.exports.plugins).concat([
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '/dist/index.html'),
+      template: path.join(__dirname, 'template.html'),
       inject: 'head',
     }),
   ])
