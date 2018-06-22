@@ -1,2 +1,2 @@
-import Mandala from './dist/mandala.min.js'
+import Mandala from './dist/mandala.js'
 export default Mandala

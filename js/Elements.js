@@ -1,6 +1,7 @@
 import Style from './Style'
 
 const depthStr = (depth) => `depth_${depth}`
+
 const debugStr = (debug) => (debug) ? 'debug' : ''
 
 const Polygon = ((polygon, css, debug) => {

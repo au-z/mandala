@@ -1,5 +1,7 @@
 import Mandala from './Mandala'
 import MandalaUi from './MandalaUi'
+import Package from '../package.json'
+const version = Package.version
 
 import './helpers/StringExtensions.js'
 
@@ -53,5 +55,6 @@ module.exports = ((config, options = {}) => {
     create,
     erase,
     mandalaEffects,
+    version,
   }
 })

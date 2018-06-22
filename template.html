@@ -4,12 +4,11 @@
 	<title>Mandala</title>
 	<link rel="stylesheet" type="text/css" href="/css/mandala.css" />
 	<link rel="stylesheet" type="text/css" href="/css/mandala-ui.css" />
-	<script src="mandala.min.js"></script>	
 </head>
 <body id="wrap">
 	<div id="mandala"></div>
 	<script>
-		Mandala([
+		const mandala = new Mandala([
 			{uri: 'effects/e4'},
 			{uri: 'effects/e1'},
 			// {uri: 'effects/e2'},
@@ -17,6 +16,7 @@
 			// uiEnabled: true,
 			debug: true,
 		});
+		console.log(`[Mandala] Version`, mandala.version);
 	</script>
 </body>
 </html>

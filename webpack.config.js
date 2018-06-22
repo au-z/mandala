@@ -3,17 +3,19 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-const libraryName = 'Mandala'
-const outputFile = libraryName.toLowerCase() + ((process.env.NODE_ENV === 'production') ? '.min.js' : '.js')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   context: path.resolve(__dirname),
-  entry: path.join(__dirname, 'js/index.js'),
+  entry: {
+    'mandala': path.join(__dirname, 'js/index.js'),
+    'mandala.min': path.join(__dirname, 'js/index.js'),
+  },
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: outputFile,
-    library: libraryName,
+    filename: '[name].js',
+    library: 'Mandala',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
@@ -47,7 +49,17 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      '^@': './js',
     },
+    extensions: ['.json', '.js'],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        include: /\.min\.js$/,
+      }),
+    ],
   },
   plugins: [
     new VueLoaderPlugin(),

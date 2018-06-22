@@ -1,6 +1,6 @@
 {
   "name": "mandala-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create complex geometric animations in JS with a few lines of JSON",
   "homepage": "https://github.com/auzmartist/mandala",
   "browser": "index.js",
