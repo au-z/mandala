@@ -1,6 +1,6 @@
 {
   "name": "mandala-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create complex geometric animations in JS with a few lines of JSON",
   "homepage": "https://github.com/auzmartist/mandala",
   "browser": "index.js",
@@ -14,7 +14,7 @@
     "animation",
     "mandala"
   ],
-  "author": "Austin Martin (http://austinmart.in)",
+  "author": "Austin Martin (https://austinmart.in)",
   "license": "MIT",
   "repository": "github:auzmartist/mandala",
   "devDependencies": {

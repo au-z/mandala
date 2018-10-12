@@ -14,10 +14,11 @@ module.exports = ((config, options = {}) => {
   Check.falsy(config, 'No configuration provided.')
   Check.typeOf(config, 'Array')
   Check.typeOf(options, 'Object')
+  options.parentId = options.parentId || 'mandala'
   const uiEnabled = options.uiEnabled || false
   
-  let container = document.getElementById('mandala')
-  if(!container) throw new Error('Cannot find container with id \'mandala\'')
+  let container = document.getElementById(options.parentId)
+  if(!container) throw new Error(`Cannot find container with id '${options.parentId}'`)
 
   const mandalaEffects = []
   config.forEach((c) => {
