@@ -20,13 +20,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(j}t)s$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
         exclude: /node_modules/,
       },
       {

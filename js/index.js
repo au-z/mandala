@@ -7,12 +7,12 @@ import Check from './helpers/Check'
 
 Check.feature('Promise')
 
-module.exports = ((config, options = {}) => {
+export default ((config, options = {}) => {
   Check.falsy(config, 'No configuration provided.')
   Check.typeOf(config, 'Array')
   Check.typeOf(options, 'Object')
   const uiEnabled = options.uiEnabled || false
-  
+
   let container = document.getElementById('mandala')
   if(!container) throw new Error('Cannot find container with id \'mandala\'')
 

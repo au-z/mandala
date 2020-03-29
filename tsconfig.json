@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"baseUrl": ".",
+		"esModuleInterop": true,
+		"noImplicitAny": false,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"paths": {
+			"src/*": ["src/*"],
+			"style/*": ["style/*"]
+		}
+	},
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	]
+}
