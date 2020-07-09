@@ -1,0 +1,12 @@
+@require '~style/mixins.styl'
+
+.mandala-layer {
+	flexXY(center)
+	absPos(0)
+
+	&.preset-center {
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+	}
+}

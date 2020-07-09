@@ -1,0 +1,134 @@
+@require '~style/mixins.styl'
+
+$c-primary = #9FFFCB
+$c-active = #fa4
+
+.c-active {color: $c-active}
+
+typography(ls = 0.24em) {
+	font-family: 'Consolas', monospace
+	text-transform: uppercase
+	font-size: 0.75rem
+	line-height: 1.1rem
+	letter-spacing: ls
+	font-weight: bold
+}
+
+section.editor {
+	max-width: 240px
+	absPos(0, 0, auto, auto)
+	flexXY(center)
+	flex-direction: column
+	background: rgba(#36383a, 0.5)
+	border-bottom-left-radius: 8px
+	box-shadow: 0 2px 6px 0 rgba(#333, 0.4)
+	padding: 12px 4px
+	z-index: 1
+
+	.preview {
+		position relative
+		wh(240px)
+		flexXY(center)
+		background: rgba(#363738, 0.7)
+		border-radius: 8px
+		overflow: hidden
+		mandala-polygon::part(polygon) {
+			border: 1px solid #888
+		}
+		mandala-polygon::part(vert) {
+			background: #aaa
+		}
+
+		nav {
+			absPos(0, 0, auto, auto)
+			flexXY(space-between, center)
+			wh(100%, auto)
+			color: #ddd
+			typography(0.1em)
+			small {
+				padding: 8px
+			}
+		}
+	}
+
+	.config {
+		.layer {
+			display: grid
+			grid-template-columns: 1fr 1fr 1fr auto auto
+			grid-gap: 8px
+			padding: 4px 6px
+			margin: 4px 0
+			background: rgba(#aaa, 0.2)
+			border: 1px solid #aaa
+			border-radius: 6px
+			&.active,
+			&:focus {
+				outline: none
+				border: 1px solid $c-active
+			}
+
+			button {
+				margin-top: 1px
+				circle(20px)
+				color: $c-active
+				background: rgba(#363738, 0.5)
+				line-height: 1em
+				padding-bottom: 0.25em
+				font-size: 0.6em
+				padding-left: 0.3em
+				&.edit {
+					color: $c-primary
+					border-color: $c-primary
+				}
+				&.delete {
+					color: #f62
+					border-color: #f62
+				}
+			}
+		}
+	}
+
+	textarea, select, input, button { outline: none; }
+	input, textarea {
+		width: 100%
+		border: none
+		background: none
+		border-bottom: 2px solid #777
+		color: white
+		-moz-appearance: textfield
+		typography()
+		&:focus {
+			border-bottom-color: $c-active
+		}
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+
+	button.add {
+		width: 100%
+		margin-top: 8px
+		background: darken($c-primary, 50%)
+		border: 1px solid transparent
+		border-radius: 8px
+		padding: 4px
+		color: $c-primary
+		typography()
+		&:focus {
+			border: 1px solid $c-primary
+		}
+	}
+
+	hr {
+		width: 100%
+		height: 3px
+		border: none
+		background: rgba(black, 0.1)
+	}
+
+	mandala-style-companion {
+		width: 100%
+	}
+}

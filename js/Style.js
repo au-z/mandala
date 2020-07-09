@@ -34,7 +34,7 @@ const Style = (() => {
     const r = polygon.gon.radius
     const margin = -1 * (r - polygon.parentVertRadius)
     const gonSelector = `.${polygon.name}.${depthStr(polygon.depth)}`
-  
+
     !styleDict[gonSelector] && injectCss(`${gonSelector}{
       width: {0}px;
       height: {0}px;
@@ -43,10 +43,10 @@ const Style = (() => {
       margin-top: {1}px;
     }\n`.format(2*r, margin))
     styleDict[gonSelector] = true
-  
+
     const vertexDiameter = 2 * polygon.vert[0].radius
     const vertSelector = `.${polygon.name}.vert.${depthStr(polygon.depth)}`
-  
+
     !styleDict[vertSelector] && injectCss(`${vertSelector}{
       width: {0}px;
       height: {0}px;

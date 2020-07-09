@@ -1,13 +1,13 @@
-import MandalaRoot from './mandala-root'
 import MandalaLayer from './mandala-layer'
 import MandalaPolygon from './mandala-polygon'
+import MandalaCompanion from './mandala-companion'
 
-const Components = {
-	MandalaRoot,
+const components = {
 	MandalaLayer,
 	MandalaPolygon,
+	MandalaCompanion,
 }
 
 export {
-	Components,
+	components,
 }

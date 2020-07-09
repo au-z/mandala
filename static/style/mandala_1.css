@@ -1,0 +1,13 @@
+/* mandala-polygon::part(vert) {
+	background: #CDE6F5;
+}
+
+mandala-polygon::part(polygon) {
+	animation: spin-polygon 60s infinite linear;
+} */
+
+mandala-polygon[data-depth=0]::part(polygon) {
+  background: #00d4ff;
+}mandala-polygon[data-depth=0]::part(vert) {
+  background: white;
+}

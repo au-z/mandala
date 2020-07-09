@@ -21,6 +21,10 @@ module.exports = (env) => ({
 		rules: [
 			load(/\.(j|t)s?$/, 'babel-loader'),
 			load(/\.styl(us)?$/, 'css-loader', 'stylus-loader'),
+			{
+				...load(/\.css$/, 'css-loader'),
+				exclude: /node_modules\/(?!(highlight\.js))/,
+			},
 		]
 	},
 	resolve: {
