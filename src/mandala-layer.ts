@@ -25,7 +25,7 @@ const nodeStyles = (R, N, r, n) => {
 	};
 };
 
-export interface MandalaLayer extends HTMLElement {
+export interface MandalaLayerElement extends HTMLElement {
 	exportparts: string,
 	height: number,
 	nested: number,
@@ -35,7 +35,7 @@ export interface MandalaLayer extends HTMLElement {
 	template: [number, number, number, Array<number>?],
 }
 
-const MandalaLayer: Hybrids<MandalaLayer> = {
+const MandalaLayer: Hybrids<MandalaLayerElement> = {
 	tag: "mandala-layer",
 	template: [], // [R, N, r, [child]?],
 	name: 'm',
