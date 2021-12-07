@@ -1,5 +1,5 @@
 import { Hybrids } from "hybrids";
-export interface MandalaLayer extends HTMLElement {
+export interface MandalaLayerElement extends HTMLElement {
     exportparts: string;
     height: number;
     nested: number;
@@ -8,5 +8,5 @@ export interface MandalaLayer extends HTMLElement {
     tag: string;
     template: [number, number, number, Array<number>?];
 }
-declare const MandalaLayer: Hybrids<MandalaLayer>;
+declare const MandalaLayer: Hybrids<MandalaLayerElement>;
 export default MandalaLayer;

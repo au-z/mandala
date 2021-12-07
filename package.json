@@ -1,6 +1,6 @@
 {
   "name": "mandala-js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Create beautiful animated mandalas",
   "type": "module",
   "main": "dist/mandala-js.es.js",
