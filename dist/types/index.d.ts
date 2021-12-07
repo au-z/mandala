@@ -1,2 +1,2 @@
-import MandalaLayer, { MandalaLayerElement } from './mandala-layer';
-export { MandalaLayer, MandalaLayerElement, };
+export { default as MandalaLayer } from './mandala-layer';
+export * from './mandala-layer';

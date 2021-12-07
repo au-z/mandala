@@ -684,7 +684,7 @@ var dataMap = {
     }
     return defaultValue;
   },
-  set: function set2(key2, value) {
+  set: function set(key2, value) {
     map.set(key2, value);
     return value;
   }
@@ -1420,7 +1420,7 @@ function getPartialObject(name, value) {
 }
 var stringCache = new Map();
 var storeValues = new WeakMap();
-function set(property2, valueOrPath) {
+function set2(property2, valueOrPath) {
   if (!property2) {
     throw Error("The first argument must be a property name or an object instance: ".concat(property2));
   }
@@ -1495,7 +1495,7 @@ function resolve(promise, placeholder) {
 var helpers = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  set,
+  set: set2,
   resolve
 });
 var PLACEHOLDER = getPlaceholder();
@@ -1663,3 +1663,4 @@ const MandalaLayer = {
   })
 };
 define("mandala-layer", MandalaLayer);
+export { MandalaLayer };
