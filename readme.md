@@ -1,105 +1,72 @@
-# Mandala
+# mandala-js
+> Create complex geometric animations with simple Web Components. 
 
-Create complex geometric animations in pure CSS with a few lines of JSON. 
-Mandala does away with laborious recursive markup and standardizes a flexible syntax oriented towards building nested geometric pattens in the browser. 
+Mandala uses a simple template syntax for building nested geometric pattens in the browser.
 
-## Installation
-
-Mandala comes ready to tinker. When you're ready, port the dist folder to your own web projects.
-
-For those looking to play:
-
-1.  Clone it!
-2.  `npm install`
-3.  `npm start`
+## Getting Started
+```bash
+npm i mandala
+```
 
 ## Usage
+Import the `MandalaLayer` web component.
+```ts
+import {MandalaLayer} from 'mandala-js'
+```
 
-Once starting lite-server with `npm start`, browse to localhost:3000 to begin.
+Use the Web component in your app.
 
-*Disclaimer: Mandala is more 'art project' than 'robust code-base.' It's designed for the enlightened, modern browser. Vendor prefixed CSS and polyfills are not planned. If you're looking the next best framework to do some crazy IE8 native CSS animations, your princess is in another castle.*
+```html
+<mandala-layer name="m1" template="[30, 5, 5, [30, 3, 2]]"></mandala-layer>
+```
 
-*Note: Mandala uses VueJS for a small management component. However, the dist directory is dependency-less!*
+### Template
+A template recursively specifies 4 things about a mandala layer.
+The `Child Layer` is an optional fourth element containing the structure of the nested layer.
 
-Mandala template files are located in the /effects folder. Each mandala is described by a .json file. Matching .css files provide extra effect-specific styles and animations.
-The examples in the project should get you off the ground but here's a primer on a basic Mandala design file.
+```
+[Layer Radius, Node Count, Node Radius, [Child Layer]]
+```
 
-JSON files look like this:
-```json
-{
-  "name": "E1",
-  "debug": false,
-  "gon": {
-    "root": { "vertCount": 3, "radius" : 20 }
-  },
-  "vert": {
-    "p1": { "radius" : 4 },
-    "p2": { "radius" : 2 }
-  },
-  "nodes": [
-    { "gon": "root", "vert": "p1", "link": 1},
-    { "gon": "root", "vert": "p2"}
-  ]
+### Styling
+`mandala-js` uses ::part styling to expose styles from deeply nested shadow roots to the light DOM.
+
+Part identifiers follow the following specification: 
+```
+{name}-(node|layer)-{depth}
+```
+For example:
+```css
+mandala-layer::part(m-layer-0) {
+  /* styles the root layer of a mandala with the default name */
+}
+
+mandala-layer::part(myMandala-node-3) {
+  /* styles the 4th level nodes of a mandala named "myMandala" */
 }
 ```
 
-__Name:__ Give the effect a name.
+Combinations of these selectors can lead to some interesting shapes.
 
-__Debug:__ Specifies whether to render a thin outline and border around your polygons and verts for easy debugging. 
+### Animations
+CSS animations are not current transcluded through the shadow DOM.
+This spec may change so this is an evolving area of the API.
 
-__Gon:__ The Gon collection describes the various polygons available. vertCount signifies the number of vertices associated with each polygon.
+Two simple animations are provided:
 
-__Vert:__ The vert collection describes the types of vertices to describe the gon. For now, all verts are circular. However, this can be overridden with some custom CSS.
+- spinCW: clockwise spin
+- spinCCW: counter-clockwise spin
 
-__Nodes:__ Nodes contains a collection of objects that describe each level of the resulting DOM tree.
-For now, each level must consist of homogeneous particles, hence the single "vert" property. 
-The "link" property acts as a pointer to direct the Mandala parser to any child nodes. Be careful not to add any loops :).
-The example design (above) renders to this:
-
-```html
-<div class="E1 gon depth_0">
-  <div class="E1 vert depth_0 n_0">
-    <div class="E1 gon depth_1">
-      <div class="E1 vert depth_1 n_0"></div>
-      <div class="E1 vert depth_1 n_1"></div>
-      <div class="E1 vert depth_1 n_2"></div>
-    </div>
-  </div>
-  <div class="E1 vert depth_0 n_1">
-    <div class="E1 gon depth_1">
-      <div class="E1 vert depth_1 n_0"></div>
-      <div class="E1 vert depth_1 n_1"></div>
-      <div class="E1 vert depth_1 n_2"></div>
-    </div>
-  </div>
-  <div class="E1 vert depth_0 n_2">
-    <div class="E1 gon depth_1">
-      <div class="E1 vert depth_1 n_0"></div>
-      <div class="E1 vert depth_1 n_1"></div>
-      <div class="E1 vert depth_1 n_2"></div>
-    </div>
-  </div>
-</div>
-```
-
-The design section makes specifying complex nestings of thousands of divs trivial. Neat, huh?
-
-More? 
-Yes. Coming.
 
 ## Contributing
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+Contributions welcome!
 
 ## License
 
 MIT License
 
-Copyright (c) [2016] [Austin Martin]
+Copyright (c) [2021] [Austin Martin]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
