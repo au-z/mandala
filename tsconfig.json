@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "esnext",
+		"lib": ["esnext", "DOM"],
+		"typeRoots": ["node_modules/@types"],
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "dist/types",
+		"moduleResolution": "node",
+		"esModuleInterop": true
+	},
+	"include": [
+		"src/*.ts"
+	],
+}

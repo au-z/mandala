@@ -1,0 +1,35 @@
+@require '~style/mixins.styl'
+
+$c-black = #36383a
+$c-primary = #9FFFCB
+$c-active = #fa4
+
+*, *:before, *:after {
+	box-sizing: border-box
+}
+
+typography(ls = 0.24em) {
+	font-family: 'Consolas', monospace
+	font-size: 0.75rem
+	line-height: 1.1rem
+	letter-spacing: ls
+	font-weight: bold
+}
+
+.mandala-style-companion {
+	wh(100%)
+	padding: 8px
+	typography(0.1em)
+	overflow: hidden
+
+	transition: width 0.4s ease-in-out
+
+	&.active {
+		width: auto
+	}
+
+	code {
+		color: white
+		text-transform: initial
+	}
+}

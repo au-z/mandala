@@ -1,0 +1,12 @@
+mandala-polygon::part(vert) {
+	background: transparent;
+}
+
+mandala-polygon::part(polygon) {
+	animation: spin-polygon 20s infinite reverse linear;
+}
+
+mandala-polygon[data-depth='3']::part(vert) {
+	border: 70px solid rgba(20, 24, 25, 0.04);
+	border-radius: 70px;
+}

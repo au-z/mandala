@@ -1,47 +1,36 @@
 {
   "name": "mandala-js",
-  "version": "1.0.2",
-  "description": "Create complex geometric animations in JS with a few lines of JSON",
-  "homepage": "https://github.com/auzmartist/mandala",
-  "browser": "index.js",
+  "version": "2.0.2",
+  "description": "Create beautiful animated mandalas",
+  "type": "module",
+  "main": "dist/mandala-js.es.js",
+  "exports": {
+    ".": "./dist/mandala-js.es.js"
+  },
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --mode=production --progress --hide-modules",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode=development --open --hot --quiet",
-    "prepublish": "npm run build"
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "geometry",
     "animation",
     "mandala"
   ],
-  "author": "Austin Martin (https://austinmart.in)",
+  "author": "Austin Martin (auz.martin@gmail.com)",
   "license": "MIT",
   "repository": "github:auzmartist/mandala",
   "devDependencies": {
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "concurrently": "^2.2.0",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.7.2",
-    "eslint-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "loader-utils": "1.0.4",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "vue-loader": "^15.2.4",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.11.0",
-    "webpack-cli": "^3.0.2",
-    "webpack-dev-server": "^3.1.4",
-    "yargs": "^9.0.1"
+    "@types/node": "^16.11.11",
+    "code-tex": "^0.2.0",
+    "typescript": "^4.5.2",
+    "vite": "^2.6.14"
   },
   "dependencies": {
-    "vue": "^2.5.16",
-    "lodash": "^4.17.4"
+    "hybrids": "^4.1.6"
   }
 }

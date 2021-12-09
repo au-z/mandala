@@ -1,0 +1,7 @@
+mandala-polygon::part(vert) {
+	background: #87919E;
+}
+
+mandala-polygon::part(polygon) {
+	animation: spin-polygon 20s infinite linear;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mandala</title>
+	<script type="module" src="/src/index.ts"></script>
+</head>
+<body>
+	<div class="container" style="width: 100wh; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+		<mandala-layer name="m1"></mandala-layer>
+	</div>
+
+	<script>
+		const mandala = document.querySelector("mandala-layer");
+		mandala.template = [
+			50, 5, 5, [
+				50, 5, 3, [
+					50, 5, 2, [
+						50, 5, 1
+					]
+				]
+			]
+		];
+	</script>
+
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+
+		mandala-layer::part(m1-node-0),
+		mandala-layer::part(m1-node-1),
+		mandala-layer::part(m1-node-2) {
+			background: #f3a83893;
+		}
+		mandala-layer::part(m1-node-3) {
+			background: #8978f2;
+		}
+
+		mandala-layer::part(m1-layer-1) {
+			animation: spinCW 50s infinite linear;
+		}
+
+		mandala-layer::part(m1-layer-0) {
+			animation: spinCCW 30s infinite linear;
+		}
+
+		mandala-layer::part(m1-layer-2) {
+			animation: spinCW 40s infinite linear;
+		}
+
+	</style>
+</body>
+</html>
