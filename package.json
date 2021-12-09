@@ -23,6 +23,7 @@
   ],
   "author": "Austin Martin (auz.martin@gmail.com)",
   "license": "MIT",
+  "repository": "github:auzmartist/mandala",
   "devDependencies": {
     "@types/node": "^16.11.11",
     "code-tex": "^0.2.0",
